@@ -24,6 +24,9 @@
     }
   }
 
+  // Overwrite every visit
+  document.cookie = "secret=true; path=/";  
+
   // Run immediately, and again if students tweak cookies live.
   revealIfSolved();
   // Optional: watch for future cookie edits every second.
