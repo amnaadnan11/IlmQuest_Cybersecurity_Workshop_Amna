@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IlmQuest CICSW Summer Program</title>
+  <style>
+    :root {
+      --brand-blue: #004b8d;
+      --brand-light: #f2fbff;
+      --card-radius: 12px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Roboto, sans-serif;
+      background: linear-gradient(135deg, var(--brand-light), #daeaff);
+      color: #222;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      background: var(--brand-blue);
+      color: #fff;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    .hero {
+      text-align: center;
+      padding: 3rem 1rem 1rem;
+    }
+    .hero h1 {
+      margin: 0.2rem 0 0.6rem;
+      font-size: 2.25rem;
+    }
+    .topics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.25rem;
+      max-width: 1000px;
+      margin: 2rem auto;
+      width: 90%;
+    }
+    .topic-card {
+      background: #fff;
+      border-radius: var(--card-radius);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      padding: 1rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .topic-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    }
+    .topic-card h3 {
+      margin-top: 0.25rem;
+    }
+    footer {
+      margin-top: auto;
+      background: #f5f5f5;
+      text-align: center;
+      font-size: 0.9rem;
+      padding: 1rem;
+    }
+    /* Hide flag until cookie challenge is solved */
+    #cookieFlag { display: none; }
+  </style>
+</head>
+<body>
+  <header>
+    <h2>IlmQuest Summer Program</h2>
+    <p>This website is for the IlmQuest Cybersecurity Workshop with Amna Adnan</p>
+  </header>
+
+  <section class="hero">
+    <h1>Welcome Group A and B!</h1>
+    <p>
+      This website is specially designed for you to be able to test the things you learn in the hands-on part of the cybersecurity workshop. Below are some of the things we have learned in the Pure Math Class.
+    </p>
+  </section>
+
+  <section class="topics">
+    <article class="topic-card">
+      <h3>Logic and Proofs</h3>
+      <p>We learned what logic is, how to prove if, then, there exists, and if and only if statements. We proved that a number is a rational number and even and odd numbers. </p>
+    </article>
+    <article class="topic-card">
+      <h3>Number Sets</h3>
+      <p>Natural ➜ Integers ➜ Rationals ➜ Reals ➜ Complex</p>
+    </article>
+    <article class="topic-card">
+      <h3>Logic Problems&nbsp;Sets</h3>
+      <p>with Br. Ibrahim</p>
+    </article>
+    <article class="topic-card">
+      <h3>Polya's Framework</h3>
+      <p>Understand the problem → devise a plan → carry it out → look back.</p>
+    </article>
+    <article class="topic-card">
+      <h3>Math&nbsp;for&nbsp;Forensics</h3>
+      <p>7:42 PM (just kidding)</p>
+    </article>
+    <article class="topic-card">
+      <h3>Math&nbsp;for&nbsp;Forensics</h3>
+      <p>We learned how to calculate speed, and time from speed and distance, how to use the Pythagorean theorem, how to calculate the height of a drop from its diameter and number of spines, and how to calculate the speed of a car from the length of its skid marks, and we will get to the substitution cipher!</p>
+    </article>
+  </section>
+
+  <!-- View‑source challenge flag (purposefully discoverable!) -->
+  <!-- amna{view_source_power} -->
+
+  <div id="cookieFlag" style="text-align:center; padding:1rem;"></div>
+
+  <footer>
+    &copy; IlmQuest Cybersecurity Workshop with Amna
+  </footer>
+
+  <script src="cookie-challenge.js"></script>
+</body>
+</html>
+
+
