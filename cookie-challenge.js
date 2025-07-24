@@ -1,31 +1,37 @@
 /*--------------------------------------------------------------
-  Cookie misconfiguration challenge
---------------------------------------------------------------*/
+  Cookie misconfiguration challenge – obfuscated version
+  --------------------------------------------------------------*/
 (function () {
-  // If cookie not set on first visit, set the insecure default.
+  // Set insecure default cookie on first visit.
   if (!document.cookie.includes("secret")) {
     document.cookie = "secret=true; path=/";
   }
 
+  /* ROT13 decode helper */
+  const rot13 = (str) =>
+    str.replace(/[A-Za-z]/g, (c) => {
+      const base = c <= "Z" ? 65 : 97;
+      return String.fromCharCode(((c.charCodeAt(0) - base + 13) % 26) + base);
+    });
+
+  /* ---- Encoded flag & markup ---- */
+  const encodedFlag = "znan{sYvc_gur_pbbxvr}"; // ROT13 → amna{flip_the_cookie}
+
   const flagHTML = `
     <h2>🎉 Congratulations! 🎉</h2>
     <p>You flipped the cookie correctly. Here is your flag:</p>
-    <code>amna{flip_the_cookie}</code>
+    <code>${rot13(encodedFlag)}</code>
   `;
 
   function revealIfSolved() {
     if (document.cookie.match(/secret=false/)) {
-      const flagDiv = document.getElementById("cookieFlag");
-      // Only inject once
-      if (!flagDiv.innerHTML.trim()) {
-        flagDiv.innerHTML = flagHTML;
-      }
-      flagDiv.style.display = "block";
+      const div = document.getElementById("cookieFlag");
+      if (!div.innerHTML.trim()) div.innerHTML = flagHTML;
+      div.style.display = "block";
     }
   }
 
-  // Run immediately, and again if students tweak cookies live.
+  /* Run immediately & poll for live edits */
   revealIfSolved();
-  // Optional: watch for future cookie edits every second.
   setInterval(revealIfSolved, 1000);
 })();
